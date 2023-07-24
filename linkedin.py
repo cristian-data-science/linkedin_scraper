@@ -6,8 +6,8 @@ import pandas as pd
 
 
 
-job_name = "secretaria bilingue"
-country_name = "Área metropolitana de Santiago"
+job_name = "Data Scientist"
+country_name = "United States"
 
 #We create the corresponding job name in URL
 job_url ="";
@@ -25,10 +25,10 @@ for item in country_name.split(" "):
     else:
         country_url = country_url + item
 
-url = "https://www.linkedin.com/jobs/search?keywords={0}&location={1}&geoId=90009899&trk=public_jobs_jobs-search-bar_search-submit&position=1&pageNum=0".format(job_url,country_url)
+url = "https://www.linkedin.com/jobs/search/?currentJobId=3634513412&geoId=103644278&keywords=computer%20science&location=Estados%20Unidos&refresh=true".format(job_url,country_url)
 
 # Creating a webdriver instance
-driver = webdriver.Chrome(executable_path= r'C:\chrome_driver\chromedriver.exe')
+driver = webdriver.Chrome()
 # Opening the url we have just defined in our browser
 driver.get(url)
 
@@ -45,7 +45,7 @@ else:
 jobs_num   = (jobs_num)
 
 #Here I choose manually a number of jobs, so it wont take that long:
-jobs_num = 100;
+jobs_num = 1000
 
 
 #We create a while loop to browse all jobs. 
@@ -113,4 +113,4 @@ data = {'date': date_list,
         'job_link': job_link_list}
 
 df = pd.DataFrame(data)
-df.to_excel('secre_jobsv2.xlsx')
+df.to_excel('data_science_USA.xlsx')
